@@ -27,20 +27,18 @@ public class Main {
      */
     public static void main(String[] args)  {
         record[] adatok =new record[500];
-        String helyesValaszok ="";
+        String helyesValaszok =" ";
         int versenyzokSzama =0;
         
         //elso feladat
-        try{File file = new File("C:\\Users\\Gabor\\Documents\\NetBeansProjects\\emelt_info_2017maj_java\\2017maj\\src\\valaszok.txt");
+        try{File file = new File("C:\\Users\\Gabor\\Documents\\NetBeansProjects\\emelt_info_2017majus_java\\2017maj\\src\\valaszok.txt");
         Scanner sc = new Scanner(file);
         helyesValaszok=sc.nextLine();
         for(int x=0;x<500;x++){
         if(sc.hasNext()){
-        String id;
-        id=sc.next();
+        String id=sc.next();
         String val =sc.next();
         adatok[x]= new record(id,val);
-        //System.out.print(adatok[x].getId()+" "+ adatok[x].getValaszaiEgyben()+"\n");
         }}
         sc.close();
         System.out.println("1. Feladat: Az adatok beolvasása");
