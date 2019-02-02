@@ -75,7 +75,8 @@ public class Main {
         String userInput5="Nem sikerült a beolvasás!";
         if(scIn.hasNext()){userInput5=scIn.nextLine();scIn.close();}
         System.out.println(userInput5);
-        int feladatSorszama = Integer.parseInt(userInput5)-1;
+        int feladatSorszama=0;
+        try{feladatSorszama = Integer.parseInt(userInput5)-1;
         int helyesenValaszolokSzama=0;
         for(int x=0;x<versenyzokSzama;x++){
             String[] v=valaszDarabolasa(adatok[x].getValaszaiEgyben());
@@ -86,6 +87,8 @@ public class Main {
         double szazaleka = helyesenValaszolokSzama*100.0/versenyzokSzama;
         String kiirando= df2.format(szazaleka);
         System.out.println("A feladatra "+helyesenValaszolokSzama+" fő, a versenyzők "+kiirando+"%-a adott helyes választ.");
+        }catch(NumberFormatException nfe){
+        System.out.println("Nem egész számot adott meg!");}
         
         //hatodik feladat
         String[] idEsPontszam =hatodik(adatok,versenyzokSzama,helyes);
